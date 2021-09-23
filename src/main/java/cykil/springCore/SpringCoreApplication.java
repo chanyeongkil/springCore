@@ -15,11 +15,16 @@ public class SpringCoreApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SpringCoreApplication.class, args);
-
 		Long memberId = 1L;
 
-		MemberService memberService = new MemberServiceImpl();
-		OrderService orderService = new OrderServiceImpl();
+		AppConfig appConfig = new AppConfig();
+		MemberService memberService = appConfig.memberService();
+		OrderService orderService = appConfig.orderService();
+
+		/** AppConfig 추가 전
+		 *  MemberService memberService = new MemberServiceImpl();
+		 *  OrderService orderService = new OrderServiceImpl();
+		 *  */
 
 		Member member = new Member(memberId, "memberA", Grade.VIP);
 		memberService.join(member);

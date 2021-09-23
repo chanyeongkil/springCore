@@ -9,7 +9,7 @@ public class RateDiscountPolicy implements DiscountPolicy{
     public int discount(Member member, int price) {
         // VIP 등급일 경우 할인 적용
         if(member.getGrade() == Grade.VIP){
-            return discountRate;
+            return price * discountRate/100;
         }else{
             return 0;
         }
